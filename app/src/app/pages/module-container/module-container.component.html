@@ -1,0 +1,107 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+        <app-side-nav-list (sideNavToggled)="sidenav.close()"></app-side-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <main>
+            <app-auth-navbar></app-auth-navbar>
+            <div class="body-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2" *ngIf="!user?.view_only">
+                            <div class="side-nav-wrapper">
+                                <div class="nav-wrapper">
+                                    <nav>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <mat-icon>
+                                                    waving_hand
+                                                </mat-icon>
+                                                <h3>
+                                                    Hi, {{user?.first_name}}
+                                                </h3>
+                                            </li>
+                                            <li routerLink="/dashboard" routerLinkActive="active"
+                                                *ngIf="!user?.is_admin">
+                                                <mat-icon>
+                                                    home
+                                                </mat-icon>
+                                                Dashboard
+                                            </li>
+                                            <li routerLink="/admin-dashboard" routerLinkActive="active"
+                                                *ngIf="user?.is_admin">
+                                                <mat-icon>
+                                                    home
+                                                </mat-icon>
+                                                Dashboard
+                                            </li>
+                                            <li routerLink="/add-project" routerLinkActive="active">
+                                                <mat-icon>
+                                                    add_circle_outline
+                                                </mat-icon>
+                                                Add Project
+                                            </li>
+                                            <li routerLink="/users" routerLinkActive="active" *ngIf="user?.is_admin">
+                                                <mat-icon>
+                                                    people
+                                                </mat-icon>
+                                                Users
+                                            </li>
+                                            <li routerLink="/departments" routerLinkActive="active"
+                                                *ngIf="user?.is_admin">
+                                                <mat-icon>
+                                                    business
+                                                </mat-icon>
+                                                Departments
+                                            </li>
+                                            <li (click)="logout()">
+                                                <mat-icon>
+                                                    exit_to_app
+                                                </mat-icon>
+                                                Logout
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2" *ngIf="user?.view_only">
+                            <div class="side-nav-wrapper">
+                                <div class="nav-wrapper">
+                                    <nav>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <mat-icon>
+                                                    waving_hand
+                                                </mat-icon>
+                                                <h3>
+                                                    Hi, {{user?.first_name}}
+                                                </h3>
+                                            </li>
+                                            <li routerLink="/published-projects" routerLinkActive="active"
+                                                *ngIf="!user?.is_admin">
+                                                <mat-icon>
+                                                    home
+                                                </mat-icon>
+                                                Dashboard
+                                            </li>
+                                            <li (click)="logout()">
+                                                <mat-icon>
+                                                    exit_to_app
+                                                </mat-icon>
+                                                Logout
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

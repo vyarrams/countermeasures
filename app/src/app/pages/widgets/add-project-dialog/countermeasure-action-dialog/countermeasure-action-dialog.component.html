@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>
+    Add "{{ countermeasure?.name }}" to the project?
+</h1>
+<div mat-dialog-content>
+    <h3>
+        Pros:
+    </h3>
+    <ul>
+        <li *ngFor="let item of countermeasure?.pros">
+            {{ item }}
+        </li>
+    </ul>
+    <hr>
+    <h3>
+        Cons:
+    </h3>
+    <ul>
+        <li *ngFor="let item of countermeasure?.cons">
+            {{ item }}
+        </li>
+    </ul>
+
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Confirm </button>
+</div>

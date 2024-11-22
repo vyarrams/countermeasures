@@ -1,0 +1,99 @@
+<div class="data-table-wrapper">
+    <mat-form-field appearance="outline">
+        <mat-label>Search Projects</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="roadway">
+            <th mat-header-cell *matHeaderCellDef>Roadway </th>
+            <td mat-cell *matCellDef="let element">
+                <a href="https://www.google.com/maps/search/?api=1&query={{element?.latitude}},{{element?.longitude}}"
+                    target="_blank">
+                    {{element.roadway_name}}
+                </a>
+                <br>
+                <span class="status-badge" [ngClass]="element?.is_published ? 'published' : 'draft'">
+                    {{ element?.is_published ? 'Published' : 'Draft' }}
+                </span>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="department">
+            <th mat-header-cell *matHeaderCellDef>Department </th>
+            <td mat-cell *matCellDef="let element"> {{element.department[0]?.name}}</td>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="from">
+            <th mat-header-cell *matHeaderCellDef> From </th>
+            <td mat-cell *matCellDef="let element"> {{element.from}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="to">
+            <th mat-header-cell *matHeaderCellDef> To </th>
+            <td mat-cell *matCellDef="let element"> {{element.to}} </td>
+        </ng-container>
+        <ng-container matColumnDef="added_by">
+            <th mat-header-cell *matHeaderCellDef> Added By </th>
+            <td mat-cell *matCellDef="let element">
+                <p>
+                    By {{element?.user[0]?.first_name}} {{element?.user[0]?.last_name}}
+                    <br>
+                    On {{element?.updatedAt | date: 'short'}}
+                </p>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="last_edited">
+            <th mat-header-cell *matHeaderCellDef> Last Edited </th>
+            <td mat-cell *matCellDef="let element">
+                <p *ngIf="element?.last_edited_by_data?.length > 0">
+                    By {{element?.last_edited_by_data[0]?.first_name}} {{element?.last_edited_by_data[0]?.last_name}}
+                    <br>
+                    On {{element?.updatedAt | date: 'short'}}
+                </p>
+            </td>
+        </ng-container>
+
+        <!-- Actions -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button color="primary" (click)="editProjectClicked(element)" *ngIf="!view_only">
+                    <mat-icon>
+                        edit
+                    </mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deleteProjectClicked(element)" *ngIf="!view_only">
+                    <mat-icon>
+                        delete
+                    </mat-icon>
+                </button>
+                <!-- <button mat-icon-button color="warn" (click)="uploadPDFClicked(element)" *ngIf="!view_only">
+                    <mat-icon>
+                        file_upload
+                    </mat-icon>
+                </button> -->
+                <button mat-icon-button color="warn" (click)="downloadPDFClicked(element)"
+                    *ngIf="element.uploaded_document">
+                    <mat-icon>
+                        picture_as_pdf
+                    </mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+    </table>
+
+</div>

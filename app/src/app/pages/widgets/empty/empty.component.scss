@@ -1,0 +1,10 @@
+.empty-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .img-wrapper {
+    margin-bottom: 20px;
+    height: 300px;
+  }
+}

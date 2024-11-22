@@ -1,0 +1,95 @@
+.old-users-info-wrapper {
+  border-radius: 10px;
+  background-color: lightpink;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  .row {
+    align-items: center;
+    .col-md-9 {
+      height: 100%;
+    }
+    .col-md-3 {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      button {
+        height: 50px;
+      }
+    }
+  }
+}
+.trending-tags-container {
+  padding: 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  h2 {
+    padding: 0 10px;
+    font-size: 100%;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+  }
+  .trending-tags-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .tag {
+      display: inline-flex;
+      margin: 4px 5px;
+      padding: 5px 10px;
+      border-radius: 3px;
+      border-radius: 3px;
+      cursor: pointer;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      color: #555;
+      font-size: 90%;
+    }
+  }
+}
+
+.upgrade-wrapper {
+  position: relative;
+  padding: 20px 20px;
+  border: 1px solid rgba($color: #000000, $alpha: 0.2);
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba($color: #000000, $alpha: 0.2);
+  animation: shine 2s infinite;
+  background: linear-gradient(to right, #f2f2f2 10%, #e6e6e6 20%, #f2f2f2 30%);
+  background-size: 800px 100%;
+  overflow: hidden;
+  .row {
+    align-items: center;
+  }
+  .col-md-9 {
+    height: 100%;
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .col-md-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    button {
+      width: 100%;
+      height: 50px;
+    }
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: -800px 0;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}

@@ -1,0 +1,30 @@
+footer {
+  padding: 20px 0 10px 0;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    p {
+      color: #888;
+      a {
+        color: #666;
+        text-decoration: none;
+        &:hover {
+          color: #000;
+          text-decoration: none;
+        }
+      }
+    }
+    ul {
+      li {
+        display: inline-flex;
+        margin-right: 10px;
+        cursor: pointer;
+        color: #666;
+        font-weight: 500;
+        font-size: 80%;
+      }
+    }
+  }
+}

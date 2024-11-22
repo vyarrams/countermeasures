@@ -1,0 +1,10 @@
+<div class="page-body-wrapper">
+    <h1>
+        Published Projects
+    </h1>
+    <div class="data-table-wrapper" *ngIf="projects?.length > 0">
+        <app-projects-data [projects]="projects" (editProject)="projectEdited($event)"
+            [view_only]="true"></app-projects-data>
+    </div>
+
+</div>

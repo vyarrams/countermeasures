@@ -1,0 +1,188 @@
+.nav {
+  height: 80px;
+  width: 100%;
+  background-color: #252525;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  .col-md-6 {
+    &:first-child {
+      .logo-wrapper {
+        img {
+          height: 40px;
+          width: auto;
+        }
+      }
+    }
+    &:last-child {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .nav-menu-wrapper {
+        ul {
+          margin: 0;
+          li {
+            display: inline-flex;
+            color: #fff;
+            cursor: pointer;
+            margin-right: 20px;
+            font-size: 110%;
+            margin-bottom: 0;
+            &:last-child {
+              margin-right: 0;
+            }
+            &:hover {
+              color: #fff;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.fvp {
+  height: 600px;
+  width: 100%;
+  background-color: #252525;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .container {
+    height: 100%;
+    .row {
+      height: 100%;
+      .col-md-6 {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:last-child {
+          .lottie-wrapper {
+            height: 80%;
+          }
+        }
+        &:first-child {
+          .title-wrapper {
+            h1 {
+              font-size: 40px;
+              font-weight: 700;
+              line-height: 1.2;
+              margin-bottom: 50px;
+              color: #fff;
+            }
+            button {
+              height: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.svp {
+  padding: 50px 0 20px 0;
+  mat-card {
+    height: 350px;
+    mat-card-title {
+      text-align: center;
+      h3 {
+        font-weight: 500;
+        color: #666;
+        font-size: 130%;
+      }
+    }
+    mat-card-subtitle {
+      text-align: center;
+      p {
+        font-size: 110%;
+        font-weight: 300;
+        margin-bottom: 30px;
+      }
+    }
+    .img-wrapper {
+      height: 150px;
+      max-width: 90%;
+      margin-bottom: 30px;
+    }
+    button {
+      margin: 10px auto;
+      width: 90%;
+    }
+  }
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    button {
+      margin: 0 10px;
+      height: 50px;
+      width: 200px;
+    }
+  }
+}
+
+.tvp {
+  padding: 50px 0;
+  .row {
+    .col-md-3 {
+      padding: 10px 10px;
+      mat-card {
+        .img-wrapper {
+          img {
+            height: 50px;
+          }
+        }
+        mat-card-title {
+          text-align: left;
+        }
+        mat-card-subtitle {
+          text-align: left;
+        }
+        height: 280px;
+      }
+    }
+  }
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    button {
+      margin: 0 10px;
+      height: 50px;
+      width: 200px;
+    }
+  }
+}
+
+// mobile media query
+// X-Small devices (portrait phones, less than 576px)
+// @media (max-width: 575.98px) { ... }
+
+// Small devices (landscape phones, less than 768px)
+// @media (max-width: 767.98px) { ... }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .fvp {
+    height: auto;
+    .col-md-6 {
+      padding: 40px 20px;
+      text-align: center;
+    }
+  }
+}
+
+// Large devices (desktops, less than 1200px)
+// @media (max-width: 1199.98px) { ... }
+
+// X-Large devices (large desktops, less than 1400px)
+// @media (max-width: 1399.98px) { ... }
+
+// XX-Large devices (larger desktops)
+// No media query since the xxl breakpoint has no upper bound on its width
