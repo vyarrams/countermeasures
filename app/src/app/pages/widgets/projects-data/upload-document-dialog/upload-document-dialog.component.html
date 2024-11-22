@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>
+    Upload Document for {{ data?.roadway_name }} Project
+</h1>
+<div mat-dialog-content>
+    <div *ngIf="!show_loading">
+        <input type="file" name="" id="" (change)="fileUploaded($event)">
+        <div class="submit-btn-wrapper">
+            <button mat-raised-button color="primary" [disabled]="!file" (click)="submitClicked()">
+                Upload
+            </button>
+        </div>
+    </div>
+    <div *ngIf="show_loading" class="show_loading_wrapper">
+        <mat-spinner *ngIf="show_loading"></mat-spinner>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="page-body-wrapper">
+    <h1>
+        All Projects
+    </h1>
+    <!-- <mat-card>
+        <mat-card-content>
+            <input type="file" (change)="tempFileUpdated($event)">
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-flat-button color="primary" (click)="uploadTempFile()">
+                <mat-icon>
+                    cloud_upload
+                </mat-icon>
+                Upload
+            </button>
+        </mat-card-actions>
+    </mat-card> -->
+    <div class="top-btns-wrapper">
+        <button mat-raised-button color="primary" routerLink="/add-project">
+            <mat-icon>
+                add
+            </mat-icon>
+            Add Project
+        </button>
+    </div>
+
+    <div class="data-table-wrapper" *ngIf="projects?.length > 0">
+        <app-projects-data [projects]="projects" (editProject)="projectEdited($event)"></app-projects-data>
+    </div>
+
+</div>

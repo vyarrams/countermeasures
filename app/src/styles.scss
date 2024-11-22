@@ -1,0 +1,174 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.section-title-wrapper {
+  margin-bottom: 50px;
+  text-align: center;
+  h2 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #252525;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 0;
+    color: #fff;
+  }
+}
+
+.auth-page {
+  height: 100vh;
+  .container {
+    height: 100%;
+  }
+  .row {
+    .col-md-6,
+    .col-md-4 {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:first-child,
+      &:nth-child(2) {
+        padding-right: 0;
+        .logo-wrapper {
+          text-align: center;
+          cursor: pointer;
+          margin-bottom: 5px;
+          img {
+            height: 120px;
+            margin-bottom: 20px;
+          }
+          h4 {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 24px;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #4050b5;
+          }
+          h3 {
+            font-size: 24px;
+            line-height: 24px;
+            font-weight: 600;
+            color: #4050b5;
+            margin-bottom: 10px;
+          }
+        }
+        .form-wrapper {
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          form {
+            width: 80%;
+            .label-wrapper {
+              text-align: left;
+              label {
+                text-align: left;
+                p {
+                  margin-bottom: 8px;
+                }
+              }
+            }
+            mat-form-field {
+              width: 100%;
+            }
+            .submit-btn {
+              height: 50px;
+              width: 100%;
+            }
+            a {
+              text-decoration: none;
+            }
+            .left-text {
+              text-align: left;
+            }
+            .social-btn {
+              height: 50px;
+              width: 100%;
+              img {
+                height: 14px;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+      }
+      &:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .lottie-wrapper {
+          height: 200px;
+          margin-bottom: 30px;
+        }
+        .tip-wrapper {
+          padding: 40px 40px;
+          border: 1px solid rgba($color: #000000, $alpha: 0.1);
+          border-radius: 5px;
+          background-color: #fff;
+          mat-icon {
+            color: yellowgreen;
+            height: 40px;
+            width: 40px;
+            font-size: 40px;
+            margin-bottom: 20px;
+          }
+          .tip-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #444;
+          }
+          .tip-description {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 0;
+            color: #252525;
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+  }
+}
+
+.top-btns-wrapper {
+  margin-bottom: 20px;
+}
+
+.data-table-wrapper {
+  mat-form-field {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+.form-wrapper {
+  mat-form-field {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+// Mobile
+// @media (max-width: 767px) {
+
+// }

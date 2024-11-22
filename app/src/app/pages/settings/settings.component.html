@@ -1,0 +1,53 @@
+<div class="page-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>
+                            <h1>
+                                Change Password
+                            </h1>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="form-wrapper">
+                            <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Old Password</mat-label>
+                                    <input matInput type="password" formControlName="old_password" name="old_password"
+                                        required>
+                                    <mat-error *ngIf="changePasswordForm.get('old_password')?.hasError('required')">
+                                        Old Password is required
+                                    </mat-error>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>New Password</mat-label>
+                                    <input matInput type="password" formControlName="new_password" name="new_password"
+                                        required>
+                                    <mat-error *ngIf="changePasswordForm.get('new_password')?.hasError('required')">
+                                        New Password is required
+                                    </mat-error>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Confirm New Password</mat-label>
+                                    <input matInput type="password" formControlName="confirm_password"
+                                        name="confirm_password" required>
+                                    <mat-error *ngIf="changePasswordForm.get('confirm_password')?.hasError('required')">
+                                        Confirm New Password is required
+                                    </mat-error>
+                                </mat-form-field>
+                                <mat-card-actions align="end">
+                                    <button mat-raised-button color="primary" type="submit"
+                                        [disabled]="!changePasswordForm.valid">
+                                        Change Password
+                                    </button>
+                                </mat-card-actions>
+                            </form>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

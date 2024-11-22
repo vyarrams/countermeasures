@@ -1,0 +1,98 @@
+<div class="page-wrapper auth-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-wrapper">
+                    <div class="logo-wrapper" routerLink="/">
+                        <img src="../../../assets/logo/logo-cropped.png" alt="">
+                    </div>
+                    <h1>
+                        Create an account
+                    </h1>
+                    <p>
+                        Register now and unlock your full potential!
+                    </p>
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="label-wrapper">
+                            <label>
+                                <p>First Name</p>
+                            </label>
+                        </div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                <mat-icon>person</mat-icon>
+                            </mat-label>
+                            <input matInput formControlName="first_name" entrepreneurs="First name" type="text"
+                                name="first_name" required>
+                            <mat-error *ngIf="form.get('first_name')?.hasError('required')">
+                                First name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <div class="label-wrapper">
+                            <label>
+                                <p>Last Name</p>
+                            </label>
+                        </div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                <mat-icon>person</mat-icon>
+                            </mat-label>
+                            <input matInput entrepreneurs="Last name" type="text" formControlName="last_name"
+                                name="last_name" required>
+                            <mat-error *ngIf="form.get('last_name')?.hasError('required')">
+                                Last name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <div class="label-wrapper">
+                            <label>
+                                <p>Email</p>
+                            </label>
+                        </div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                <mat-icon>email</mat-icon>
+                            </mat-label>
+                            <input matInput entrepreneurs="Email" type="email" formControlName="email" name="email"
+                                required>
+                            <mat-error *ngIf="form.get('email')?.hasError('required')">
+                                Email is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <div class="label-wrapper">
+                            <label>
+                                <p>Password</p>
+                            </label>
+                        </div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                <mat-icon>lock</mat-icon>
+                            </mat-label>
+                            <input matInput entrepreneurs="Password" type="password" formControlName="password"
+                                name="password" required>
+                            <mat-error *ngIf="form.get('password')?.hasError('required')">
+                                Password is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        <button class="submit-btn" mat-raised-button color="primary" type="submit"
+                            [disabled]="form.invalid">
+                            Register
+                        </button>
+                        <br>
+                        <br>
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.status-badge {
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: 80%;
+  color: #fff;
+  &.published {
+    background-color: #4caf50;
+  }
+  &.draft {
+    background-color: #ffc107;
+  }
+}

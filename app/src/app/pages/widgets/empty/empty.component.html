@@ -1,0 +1,11 @@
+<div class="empty-wrapper">
+    <div class="img-wrapper">
+        <ng-lottie [options]="options"></ng-lottie>
+    </div>
+    <h1>
+        {{ message }}
+    </h1>
+    <button mat-raised-button color="primary" *ngIf="button_text !== ''" (click)="btnClicked()">
+        {{ button_text }}
+    </button>
+</div>

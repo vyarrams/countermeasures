@@ -1,0 +1,32 @@
+.nbar {
+  padding: 20px 0;
+
+  .row {
+    .col-md-6 {
+      .logo-wrapper {
+        height: 60px;
+        width: auto;
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+      &:last-child {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        ul {
+          margin: 0;
+          padding: 0;
+          li {
+            display: inline-flex;
+            &:first-child {
+              margin-right: 20px;
+            }
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,534 @@
+<div>
+    <div class="form-wrapper" *ngIf="!show_form_loading">
+        <form [formGroup]="project_form">
+            <section>
+                <div class="form-section-header-wrapper">
+                    <h3 class="form-section-title">
+                        Project Information
+                    </h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- roadway_name -->
+                        <mat-form-field appearance="outline">
+                            <mat-label>Roadway Name</mat-label>
+                            <input matInput placeholder="Roadway Name" formControlName="roadway_name"
+                                name="roadway_name" required>
+                            <mat-error *ngIf="project_form?.get('roadway_name')?.hasError('required')">
+                                Roadway Name is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- location -->
+                    <div class="col-md-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Location</mat-label>
+                            <input matInput placeholder="Location" formControlName="location" name="location">
+                            <mat-error *ngIf="project_form?.get('location')?.hasError('required')">
+                                Location is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- description -->
+                    <div class="col-md-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Description</mat-label>
+                            <input matInput placeholder="Description" formControlName="description" name="description">
+                            <mat-error *ngIf="project_form?.get('description')?.hasError('required')">
+                                Description is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- from ()string-->
+                        <mat-form-field appearance="outline">
+                            <mat-label>From</mat-label>
+                            <input matInput placeholder="From" formControlName="from" name="from">
+                            <mat-error *ngIf="project_form?.get('from')?.hasError('required')">
+                                From is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- to ()string-->
+                        <mat-form-field appearance="outline">
+                            <mat-label>To</mat-label>
+                            <input matInput placeholder="To" formControlName="to" name="to">
+                            <mat-error *ngIf="project_form?.get('to')?.hasError('required')">
+                                To is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- city -->
+                    <div class="col-md-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>City</mat-label>
+                            <input matInput placeholder="City" formControlName="city" name="city">
+                            <mat-error *ngIf="project_form?.get('city')?.hasError('required')">
+                                City is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- parish -->
+                    <div class="col-md-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Parish</mat-label>
+                            <input matInput placeholder="Parish" formControlName="parish" name="parish">
+                            <mat-error *ngIf="project_form?.get('parish')?.hasError('required')">
+                                Parish is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- control_section -->
+                    <div class="col-md-12">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Control Section</mat-label>
+                            <input matInput placeholder="Control Section" formControlName="control_section"
+                                name="control_section">
+                            <mat-error *ngIf="project_form?.get('control_section')?.hasError('required')">
+                                Control Section is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- end_mile -->
+                    <div class="col-md-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>End Mile</mat-label>
+                            <input matInput placeholder="End Mile" formControlName="end_mile" name="end_mile">
+                            <mat-error *ngIf="project_form?.get('end_mile')?.hasError('required')">
+                                End Mile is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- begin_mile -->
+                    <div class="col-md-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Begin Mile</mat-label>
+                            <input matInput placeholder="Begin Mile" formControlName="begin_mile" name="begin_mile">
+                            <mat-error *ngIf="project_form?.get('begin_mile')?.hasError('required')">
+                                Begin Mile is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+
+
+                    <div class="col-md-6" *ngIf="show_department_select">
+                        <!-- department select -->
+                        <mat-form-field appearance="outline">
+                            <mat-label>Department</mat-label>
+                            <mat-select formControlName="department" name="department" required>
+                                <mat-option *ngFor="let department of user_departments" [value]="department?._id">
+                                    {{department?.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="project_form?.get('department')?.hasError('required')">
+                                Department is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <!-- <div class="col-md-6">
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>Latitude</mat-label>
+                            <input matInput placeholder="Latitude" formControlName="latitude" name="latitude">
+                            <mat-error *ngIf="project_form?.get('latitude')?.hasError('required')">
+                                Latitude is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div> -->
+                    <!-- <div class="col-md-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Longitude</mat-label>
+                            <input matInput placeholder="Longitude" formControlName="longitude" name="longitude">
+                            <mat-error *ngIf="project_form?.get('longitude')?.hasError('required')">
+                                Longitude is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div> -->
+                    <!-- show if latitude and longitude are entered -->
+                    <div class="col-md-12 map-link-wrapper"
+                        *ngIf="project_form?.get('latitude')?.value && project_form?.get('longitude')?.value">
+                        <a href="https://www.google.com/maps/search/?api=1&query={{project_form.get('latitude')?.value}},{{project_form.get('longitude')?.value}}"
+                            target="_blank">
+                            <!-- {{project_form.get('latitude')?.value}}, {{project_form.get('longitude')?.value}} -->
+                            Location
+                            <img src="../../../../assets/icons/location_pin.png" height="24" alt="">
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <br>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div id="map" style="height: 400px; width: 100%;"></div>
+
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
+            <br>
+            <section>
+                <div class="form-section-header-wrapper">
+                    <h3 class="form-section-title">
+                        FHWA Proven Safety Countermeasures
+                    </h3>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>
+                                Filters
+                            </h4>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- roadway_area_type select -->
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Roadway Area Type
+                            </mat-label>
+                            <mat-select formControlName="roadway_area_type" name="roadway_area_type" multiple
+                                (selectionChange)="filterSelectionChanged()">
+                                <mat-option *ngFor="let roadway_area_type of roadway_area_types"
+                                    [value]="roadway_area_type?._id">
+                                    {{roadway_area_type?.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="project_form?.get('roadway_area_type')?.hasError('required')">
+                                Roadway Area Type is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- roadway_classification select -->
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Roadway Classification
+                            </mat-label>
+                            <mat-select formControlName="roadway_classification" name="roadway_classification" multiple
+                                (selectionChange)="filterSelectionChanged()">
+                                <mat-option *ngFor="let roadway_classification of roadway_classifications"
+                                    [value]="roadway_classification?._id">
+                                    {{roadway_classification?.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="project_form?.get('roadway_classification')?.hasError('required')">
+                                Roadway Classification is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- focus_area select -->
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Focus Area
+                            </mat-label>
+                            <mat-select formControlName="focus_area" name="focus_area" multiple
+                                (selectionChange)="filterSelectionChanged()">
+                                <mat-option *ngFor="let focus_area of focus_areas" [value]="focus_area?._id">
+                                    {{ focus_area?.name }}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="project_form?.get('focus_area')?.hasError('required')">
+                                Focus Area is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- average_annual_day_traffic_vehicular_volume select -->
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Average Annual Day Traffic Vehicular Volume
+                            </mat-label>
+                            <mat-select formControlName="average_annual_day_traffic_vehicular_volume"
+                                name="average_annual_day_traffic_vehicular_volume" multiple
+                                (selectionChange)="filterSelectionChanged()">
+                                <mat-option
+                                    *ngFor="let average_annual_day_traffic_vehicular_volume of average_annual_day_traffic_vehicular_volumes"
+                                    [value]="average_annual_day_traffic_vehicular_volume?._id">
+                                    {{average_annual_day_traffic_vehicular_volume?.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error
+                                *ngIf="project_form?.get('average_annual_day_traffic_vehicular_volume')?.hasError('required')">
+                                Average Annual Day Traffic Vehicular Volume is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- problems_to_be_addressed multi select -->
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Problems To Be Addressed
+                            </mat-label>
+                            <mat-select formControlName="problems_to_be_addressed" name="problems_to_be_addressed"
+                                multiple (selectionChange)="filterSelectionChanged()">
+                                <mat-option *ngFor="let problems_to_be_addressed of problems_to_be_addressed"
+                                    [value]="problems_to_be_addressed?._id">
+                                    {{problems_to_be_addressed?.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="project_form?.get('problems_to_be_addressed')?.hasError('required')">
+                                Problems To Be Addressed is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <!-- crash_types_being_targeted-->
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Crash Types Being Targeted
+                            </mat-label>
+                            <mat-select formControlName="crash_types_being_targeted" name="crash_types_being_targeted"
+                                multiple (selectionChange)="filterSelectionChanged()">
+                                <mat-option *ngFor="let crash_types_being_targeted of crash_types_being_targeted"
+                                    [value]="crash_types_being_targeted?._id">
+                                    {{crash_types_being_targeted?.name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="project_form?.get('crash_types_being_targeted')?.hasError('required')">
+                                Crash Types Being Targeted is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br>
+                <div class="row countermeasures_select_row">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>
+                                Suggested Countermeasures
+                            </h4>
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                    </div>
+                    <!-- countermeasures checkboxes with ngfor -->
+                    <div class="col-md-4" *ngFor="let item of display_countermeasures; let i = index">
+                        <mat-card>
+                            <mat-card-content>
+                                {{ item?.name }}
+                            </mat-card-content>
+                            <mat-card-actions align="end">
+                                <button type="button" mat-raised-button color="primary"
+                                    (click)="addCountermeasureClicked(item)" *ngIf="!item?.selected">
+                                    Add
+                                </button>
+                                <button type="button" mat-raised-button color="warn"
+                                    (click)="removeCountermeasureClicked(i, item)" *ngIf="item?.selected">
+                                    Remove
+                                </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>
+                                Project Recommended Countermeasures
+                            </h4>
+                            <h6>
+                                Additional Countermeasures - Manual Entry
+                            </h6>
+                        </div>
+                    </div>
+                    <!-- countermeasures form  group with formarray -->
+                    <div formArrayName="countermeasures">
+                        <div class="personality-row"
+                            *ngFor="let countermeasure of countermeasures.controls; let i = index" [formGroupName]="i">
+                            <mat-card>
+                                <mat-card-content>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>
+                                                    Countermeasure
+                                                </mat-label>
+                                                <input matInput placeholder="Countermeasure"
+                                                    formControlName="countermeasure" name="countermeasure" required>
+                                            </mat-form-field>
+                                        </div>
+                                        <!-- total_implementation_cost -->
+                                        <div class="col-md-3">
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>
+                                                    Total Implementation Cost
+                                                </mat-label>
+                                                <input type="number" matInput placeholder="Total Implementation Cost"
+                                                    formControlName="total_implementation_cost"
+                                                    name="total_implementation_cost" required
+                                                    (keyup)="calculateTotalProjectCost()">
+                                            </mat-form-field>
+                                        </div>
+                                        <!-- comments -->
+                                        <div class="col-md-4">
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>
+                                                    Comments
+                                                </mat-label>
+                                                <input matInput placeholder="Comments" formControlName="comments"
+                                                    name="comments">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="button" mat-flat-button color="warn"
+                                                (click)="deleteCountermeasure(i, countermeasure)">
+                                                <mat-icon>
+                                                    delete
+                                                </mat-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <div class="add-countermeasure-wrapper">
+                            <button type="button" mat-raised-button [disabled]="project_form.disabled" color="primary"
+                                (click)="addCountermeasure()">
+                                <mat-icon>
+                                    add
+                                </mat-icon>
+                                Add Custom Countermeasure
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <br>
+            <section>
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- total_project_cost -->
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Total Project Cost
+                            </mat-label>
+                            <input matInput placeholder="Total Project Cost" formControlName="total_project_cost"
+                                name="total_project_cost" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- total_savings_in_crash_reduction -->
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Total Savings In Crash Reduction
+                            </mat-label>
+                            <input matInput placeholder="Total Savings In Crash Reduction"
+                                formControlName="total_savings_in_crash_reduction"
+                                name="total_savings_in_crash_reduction">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- benefit_cost_ratio -->
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Benefit Cost Ratio
+                            </mat-label>
+                            <input matInput placeholder="Benefit Cost Ratio" formControlName="benefit_cost_ratio"
+                                name="benefit_cost_ratio">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-12">
+                        <!-- notes -->
+                        <mat-form-field appearance="outline">
+                            <mat-label>
+                                Notes
+                            </mat-label>
+                            <textarea matInput placeholder="Notes" formControlName="notes" name="notes"></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </section>
+            <br>
+            <div class="form-section-header-wrapper">
+                <h3 class="form-section-title">
+                    Publish Project
+                </h3>
+            </div>
+            <div class="row file-row">
+                <div class="col-md-4">
+                    <!-- select publish or unpublish -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>
+                            Publish
+                        </mat-label>
+                        <mat-select formControlName="is_published" name="publish">
+                            <mat-option [value]="true">
+                                Publish
+                            </mat-option>
+                            <mat-option [value]="false">
+                                Unpublish
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-8" *ngIf="edit_mode && data?.uploaded_document">
+                    <h6>
+                        Uploaded Document
+                    </h6>
+                    <span *ngIf="!uploaded_file_deleted">
+                        <button mat-button color="primary" (click)="downloadPDFClicked()">
+                            <mat-icon>
+                                picture_as_pdf
+                            </mat-icon>
+                            Download PDF
+                        </button>
+                        <button mat-button color="warn" (click)="deleteDocumentClicked()">
+                            <mat-icon>
+                                delete
+                            </mat-icon>
+                            Delete Document
+                        </button>
+                    </span>
+                    <label for="upload-new" *ngIf="uploaded_file_deleted">
+                        <button mat-button color="primary" (click)="uploadPDFClicked()">
+                            <mat-icon>
+                                file_upload
+                            </mat-icon>
+                            Upload New Document
+                        </button>
+                        {{ file?.name }}
+                        <input type="file" id="upload-new" (change)="fileUploaded($event)" hidden #fileInput
+                            accept=".pdf">
+                    </label>
+                </div>
+                <div class="col-md-4 file-col"
+                    *ngIf="!edit_mode || (data?.uploaded_document == '' || data?.uploaded_document == null || !data?.uploaded_document)">
+                    <!-- accept only pdf -->
+                    <input type="file" name="" id="" (change)="fileUploaded($event)" accept=".pdf">
+                </div>
+            </div>
+            <div class="action-btns-wrapper">
+                <button mat-button color="primary" type="button" (click)="cancelClicked()">
+                    Cancel
+                </button>
+                <button type="submit" mat-raised-button color="primary" (click)="submitClicked()" *ngIf="!edit_mode"
+                    [disabled]="project_form.invalid || project_form.disabled">
+                    <mat-icon>
+                        add
+                    </mat-icon>
+                    Add Project
+                </button>
+                <button type="submit" mat-raised-button color="primary" (click)="updateClicked()"
+                    [disabled]="project_form.disabled" *ngIf="edit_mode">
+                    <mat-icon>
+                        update
+                    </mat-icon>
+                    Update Project
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="page-body-wrapper">
+    <h1>
+        Projects
+    </h1>
+
+
+
+    <div class="top-btns-wrapper">
+        <button mat-raised-button color="primary" routerLink="/add-project">
+            <mat-icon>
+                add
+            </mat-icon>
+            Add Project
+        </button>
+    </div>
+
+    <div class="data-table-wrapper" *ngIf="projects?.length > 0">
+        <app-projects-data [projects]="projects" [view_only]="user?.view_only"
+            (editProject)="projectEdited($event)"></app-projects-data>
+    </div>
+
+</div>
